@@ -1,0 +1,56 @@
+
+.gallery{
+    padding: 50px 0;
+    .icon {
+        font-size: 30px;
+    }
+    .carousel {
+        position: relative;
+        .carousel-item {
+            .row {
+                    img {
+                        height: 279px;
+                        width: 100%;
+                    }
+            }
+        }
+        .left-icon,
+        .right-icon {
+            color: black;
+            background-color: #FFF !important;
+            border: 0.5px solid #00000024;
+            border-radius: 50%;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+        }
+        .left-icon {
+            left: 0;
+            transform: translate(-10%,-50%);
+
+        }
+        .right-icon {
+            right: 0;
+            transform: translate(10%,-50%);
+        }
+    }
+}
+/* .gallery {
+    .slide-content {
+        .img-wrapper {
+            .img-container {
+                position: relative;
+                height: 200px;
+                width: 200px;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+} */

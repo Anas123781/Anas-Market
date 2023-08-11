@@ -1,0 +1,72 @@
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: #fd6506 !important;
+    .container {
+        .logo {
+
+        }
+        .navbar-icon {
+            color: #FFF;
+            transition: all 0.5s ease-in-out;
+        }
+        .navbar-toggler {
+            border: none;
+            fa-icon {
+                transition: all 0.5s ease-in-out;
+            }
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+            outline: none;
+        }
+        .links {
+            .links-container {
+                .nav-item {
+                    text-align: center;
+                    margin-left: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    .icon {
+                        cursor: pointer;
+                        font-size: 25px;
+                        color: #FFF;
+                        cursor: pointer;
+                        position: relative;
+                        .carts-number {
+                            position: absolute;
+                            top: -2px;
+                            right: -2px;
+                            padding: 10px;
+                            background-color: #FFF;
+                            color: #fd6506;
+                            border-radius: 50%;
+                            height: 15px;
+                            width: 15px;
+                            font-size: 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .icon-fa {
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
+                    .icon:hover .icon-fa {
+                        transform: scale(1.2); /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+                    }
+                    a {
+                        padding: 0px;
+                        color:#FFF;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

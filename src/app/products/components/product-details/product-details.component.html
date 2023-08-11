@@ -1,0 +1,84 @@
+<div class="box" *ngIf="!loading">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-7 col-sm-12">
+                <div class=" product-img text-center mr-10">
+                    <figure class="zoom" (onmousemove)="zoom($event)" style="background-image: url({{data.image}})">
+                        <img src="{{data.image}}" />
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <div class="info">
+                    <ul class="list-unstyled">
+                        <li class="title">{{data.title}} - {{data.category}}</li>
+                        <li class="reveiw">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <ul class="list-inline rating-list" style="display: inline-block">
+                                        <li *ngFor="let star of stars" ([ngModel])="rate">
+                                            <fa-icon [icon]="['fas' , 'star']" (click)="countStar(star)"></fa-icon>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span class="d-block">Reveiw : {{rate}} of 5</span>
+                        </li>
+                        <span class="state"><fa-icon [icon]="['fas','fire-flame-curved']"></fa-icon>Sale {{sale}}%</span>
+                        <li class="description">{{data.description}}</li>
+                        <li class="price text-danger"><span class="actual-price">{{data.price | currency}}</span>
+                            {{data.price * sale /100 | currency}}</li>
+                        <strong ([ngModel])="selectedSize">Size : {{selectedSize}} </strong>
+                        <li class="size">
+                            <span (click)="getSize($event)" class="active">S</span>
+                            <span (click)="getSize($event)">L</span>
+                            <span (click)="getSize($event)">XL</span>
+                            <span (click)="getSize($event)">XXL</span>
+                            <span (click)="getSize($event)">XXXL</span>
+                        </li>
+                        <strong ([ngModel])="selectedColor">color : {{selectedColor}} </strong>
+                        <li class="color d-flex justify-content-start align-items-center gap-3">
+                            <span data-color="red" class="active" (click)="getColor($event)"></span>
+                            <span data-color="black" (click)="getColor($event)"></span>
+                            <span data-color="blue" (click)="getColor($event)"></span>
+                        </li>
+                        <strong>Quantity :</strong>
+                        <div class="row">
+                            <div class="col-sm-4 col-md-5">
+                                <li class="quantity">
+                                    <span class="btn p-0 increase" (click)="plus(data)">+</span>
+                                    <input class="counter" type="number" min="1" [(ngModel)]="amount">
+                                    <span class="btn p-0 decrease" (click)="minus(data)">-</span>
+                                </li>
+                            </div>
+                        </div>
+                        <p>Total Pricc : {{amount * data.price * sale / 100| currency}}</p>
+                        <li class="button-love">
+                            <div class="row d-flex justify-content-start align-items-center">
+                                <div class="col-9 addButton">
+                                    <button class="btn btn-dark" (click)="addToCart()">Add To Cart</button>
+                                </div>
+                                <div class="col-3">
+                                    <div class="love-icon-regular" (click)="love()" *ngIf="heartChecked">
+                                        <fa-icon [icon]="['far','heart']"></fa-icon>
+                                    </div>
+                                    <div class="love-icon-solid" (click)="love()" *ngIf="!heartChecked">
+                                        <fa-icon [icon]="['fas','heart']"></fa-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--<li class="rate">{{data.rating.rate}}</li>-->
+                        <!--<li class="title">{{data.rating.count}}</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="spinner-container d-flex justify-content-center align-items-center w-100" *ngIf="loading">
+    <div class="spinner-grow text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

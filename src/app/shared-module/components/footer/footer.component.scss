@@ -1,0 +1,112 @@
+.footer {
+    padding: 60px 0px 35px;
+    background-color: #252424;
+}
+@media(max-width:992px) {
+    .footer {
+        padding: 60px 0px 80px 0px;
+    }
+}
+.brief .web-logo {
+    text-decoration: none;
+}
+.web-logo span:first-child {
+    color: #FFF;
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.web-logo span:nth-child(2){
+    color: var(--main--text-color);
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.footer .brief p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #999;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.footer .brief span a {
+    margin-left: 5px;
+    font-size: 13px;
+    color: #FFF;
+    font-weight: 700;
+}
+.footer fa-icon {
+    color: #FFF;
+    font-size: 13px;
+    margin-right: 10px;
+}
+.footer .help-col,
+.footer .contact-col {
+    padding-top: 10px;
+}
+.footer .help-col h4,
+.footer .contact-col h4 {
+    margin-bottom: 22px;
+    font-size: 22px;
+    color: #FFF;
+}
+.footer .contact-col .contact a {
+    color: #FFF;
+    text-decoration: none;
+}
+.footer .help-col ul li a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+.footer .help-col ul li a:hover {
+    color: #fd6506;
+}
+.footer .help-col ul li {
+    margin-bottom: 10px;
+}
+.footer .help-col ul li .fa-link {
+    font-size: 13px;
+    color: #FFF;
+}
+.footer .contact-col p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #999;
+    margin-bottom: 35px;
+}
+
+        /*Start copyright*/
+.copyright {
+    border-top: 1px solid #ccc;
+    padding-top: 45px;
+}
+.copyright p {
+    font-size: 14px;
+    color: #999;
+}
+.copyright p span {
+    font-size: 14px;
+    color: #fd6506;
+}
+@media(max-width: 768px) {
+    .copyright p {
+        font-size: 13px;
+    }
+}
+.copyright ul li {
+    display: inline-block;
+}
+.copyright ul li .footer-icon {
+    font-size: 25px;
+    margin-left: 10px;
+    color: #909090;
+    transition: all 0.3s ease-in-out;
+}
+.copyright ul li .footer-icon:hover {
+
+    color: #FFF;
+}
+        /*End copyright*/
+    /*End Footer*/

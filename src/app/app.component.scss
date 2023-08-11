@@ -1,0 +1,10 @@
+@media(max-width:992px) {
+    app-header {
+        display: none;
+    }
+}
+@media(min-width:991px) {
+    app-second-header {
+        display: none;
+    }
+}

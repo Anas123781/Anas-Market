@@ -1,0 +1,54 @@
+<div class="cartBox table-responsive">
+    <h1 class="text-center">Shopping Cart</h1>
+    <div class="headCart" *ngIf="!hideCarts && cartsLingth!==0">
+        <p class="lead">You have <label class="text-danger">{{cartsLingth}}</label> item in your cart</p>
+        <span class="text-danger card-header" (click)="deleteAllCarts()">clear shopping cart</span>
+    </div>
+    <table class="table table-striped"  *ngIf="!hideCarts && cartsLingth!==0">
+        <thead>
+            <tr class="text-center" >
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th style="width: 25%;">Quantity</th>
+                <th>Totle</th>
+                <th></th>
+                <th *ngIf="cartsLingth !==0">
+                    <input type="checkbox" (click)="checked($event)" class="check-all-carts" id="all" name="all" value="all">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cart of carts">
+                <td><img src="{{cart.item.image}}" alt="{{cart.item.title}}"></td>
+                <td>{{cart.item.title}}</td>
+                <td>{{cart.item.price | number|currency}} </td>
+                <td>
+                    <div class="quantity">
+                        <button class="btn btn-dark" (click)="plus(cart)">+</button>
+                        <input class="form-control" type="number" min="1"  [(ngModel)]="cart.quantity">
+                        <button class="btn btn-dark"(click)="minus(cart)">-</button>
+                    </div>
+                </td>
+                <td>{{cart.item.price * cart.quantity | number|currency}} </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteCart(cart.item.id)">Delete</button>
+                </td>   
+                <td>
+                    <input type="checkbox" (click)="checked($event)" class="check-cart" id="{{cart.item.id}}" name="{{cart.item.title}}" value="{{cart.item.id}}">
+                </td>   
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="total">Total : {{sum | number}}</th>
+                <th><button class="btn btn-success" (click)="goToPay()">Order Now</button></th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="alert alert-success text-center" role="alert" *ngIf="success"><strong>Well done!</strong> Your order is successfully send</div>

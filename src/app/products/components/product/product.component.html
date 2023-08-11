@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card text-center">
+        <span class="state"><fa-icon [icon]="['fas','fire-flame-curved']"></fa-icon>Sale {{sale}}%</span>
+        <div class="container-img">
+            <img routerLink="/details/{{data.id}}" src="{{data.image}}" class="card-img-top" alt="{{data.title}}">
+        </div>
+        <div class="card-body">
+            <div routerLink="/details/{{data.id}}">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text title">{{data.title}}</p>
+                <h5 class="card-title">Description</h5>
+                <p class="card-text description">{{data.description}}</p>
+            </div>
+            <div class="row">
+                <span class="col price d-block mb-2">{{data.price |currency}}</span>
+                <span class="col price d-block mb-2 text-danger">{{data.price * sale / 100 |currency}}</span>
+            </div>
+            <div class="footer-card d-flex justify-content-between align-items-center mb-2">
+                <button class="btn add-to-cart" (click)="addToCartClicked = true " *ngIf="!addToCartClicked" >Add to cart</button>
+                <div class="d-flex w-100" *ngIf="addToCartClicked">
+                    <input type="number" class="form-control me-2 text-center" min="1" [(ngModel)]= "quantity">
+                    <button class="btn btn-dark" (click)="add(); addToCartClicked = false">add</button>
+                </div>
+                <div class="love-icon-regular" (click)="love()" *ngIf="heartChecked">
+                    <fa-icon [icon]="['far','heart']"></fa-icon>
+                </div>
+                <div class="love-icon-solid" (click)="love()" *ngIf="!heartChecked">
+                <fa-icon [icon]="['fas','heart']"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

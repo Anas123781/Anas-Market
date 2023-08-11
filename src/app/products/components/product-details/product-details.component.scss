@@ -1,0 +1,228 @@
+.spinner-container {
+    background-color: #c0bebe;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px !important;
+    position: fixed !important;
+    left: 50%;
+    top: 50%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.box{
+    margin-top: 100px;
+    padding-top: 50px;
+    .container {
+        .row {
+            .product-img {
+                figure.zoom {
+                    background-position: 50% 50%;
+                    position: relative;
+                    width: 500px;
+                    overflow: hidden;
+                    cursor: zoom-in;
+                    max-width: 100%;
+                  }
+                  figure.zoom img:hover {
+                    transform: scale(1.1);
+                  }
+                  figure.zoom img {
+                    transition: all 1s ease-in-out;
+                    display: block;
+                    width: 100%;
+                  }
+            }
+            .info {
+                ul {
+                    li {
+                        padding: 10px 0;
+                    }
+                    .reveiw {
+                            .active {
+                                color: gold;
+                            }
+                        .rating-list li {
+                            float: right;
+                            color: #ddd;
+                            padding: 10px 5px;
+                          
+                          }
+                          .rating-list li:hover,
+                          .rating-list li:hover ~ li {
+                            color: #ffd700;
+                          }
+                          .rating-list {
+                            display: inline-block;
+                            list-style: none;
+                          }
+                        color: #969696;
+                        fa-icon {
+                            color: #bbbaba4a;
+                            cursor: pointer;
+                        }     
+                        span {
+                            margin-left: 10px;
+                            cursor: pointer;
+                        }                   
+                    }
+                    .state {
+                        color: #e95144;
+                        fa-icon {
+                            color: #e95144;
+                            margin-right: 5px;
+                        }
+                    }
+                    .title {
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                    .description {
+                        color: #3c3c3c;
+                        font-size: 14px;
+                    }
+                    .price {
+                        font-size: 25px;
+                        font-weight: bolder;
+                        .actual-price {
+                            text-decoration:line-through ;
+                            color: #505050;
+                            margin-right: 10px;
+                        }
+                    }
+                    .size {
+                        display: flex;
+                        span {
+                            padding: 5px;
+                            border: 1px solid #ababab;
+                            width: 45px;
+                            height: 45px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            margin-right: 10px;
+                            cursor: pointer;
+                        }
+                        .active {
+                            border-color: #3c3c3c;
+                        }
+                    }
+                    .color {
+                        span {
+                            padding: 2px;
+                            border-radius: 50%;
+                            width: 35px;
+                            height: 35px;
+                            cursor: pointer;
+                            position: relative;
+                        }
+                        span::after {
+                            content: '';
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%,-50%);
+                            width: 40px;
+                            height: 40px;
+                            border: 1px solid #ababab;
+                            border-radius: 50%;
+                        }
+                        .active::after {
+                            border-color: #3c3c3c;
+                        }
+                        span:hover::after {
+                            color: black;
+                        }
+                        span:nth-child(1) {
+                            background-color: red;
+                        }
+                        span:nth-child(2) {
+                            background-color: black;
+                        }
+                        span:nth-child(3) {
+                            background-color: blue
+                        }
+                    }
+                    .button-love {
+                        .addButton {
+                            button {
+                                width: 100%;
+                                border-radius: 25px;
+                                height: 50px;
+                            }
+                        }
+                        .love-icon-regular,
+                        .love-icon-solid
+                         {
+                            text-align: right;
+                            font-size: 30px;
+                            padding: 5px;
+                            border-radius: 50%;
+                            border: 0.5px solid #3c3c3c ;
+                            width: 50px;
+                            height: 50px;
+                            position: relative;
+                            cursor: pointer;
+                            fa-icon {
+                                position: absolute;
+                                left: 50%;
+                                top: 55%;
+                                transform: translate(-50%,-50%);
+                            }
+                        }
+                        .love-icon-solid {
+                            fa-icon {
+                                color: red !important
+                            }
+                        }
+                    }
+                    .quantity {
+                        position: relative;
+                        width: 100%;
+                        .counter {
+                            position: relative;
+                            height: 40px;
+                            width: 100%;
+                            border: 1px solid #3c3c3c;
+                            border-radius: 25px;
+                            padding: 0 10px;
+                            text-align: center;
+                        }
+                        .increase {
+                            position: absolute;
+                            z-index: 1;
+                            background: none;
+                            color: #3c3c3c;
+                            border: none;
+                            font-size: 30px;
+                            left: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            cursor: pointer;
+                        }
+                        .decrease {
+                            position: absolute;
+                            z-index: 1;
+                            background: none;
+                            color: #3c3c3c;
+                            border: none;
+                            font-size: 30px;
+                            right: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 992px) {
+ .box {
+    margin-top: 0;
+ }       
+}

@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AdminCartsComponent } from './admin-carts.component';
+
+describe('AdminCartsComponent', () => {
+  let component: AdminCartsComponent;
+  let fixture: ComponentFixture<AdminCartsComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [AdminCartsComponent]
+    });
+    fixture = TestBed.createComponent(AdminCartsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

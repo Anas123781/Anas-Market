@@ -1,0 +1,33 @@
+.container {
+    margin-top: 100px;
+
+    form {
+        .form-control {
+            max-width: 450px;
+            margin-top: 20px;
+            padding-left: 20px;
+            height: 45px;
+            border-radius: 25px;
+        }
+        small {
+            margin-left: 20px;
+        }
+        .form-control:focus {
+            box-shadow:none
+        }
+        .register-btn-container {
+            max-width: 450px;
+            .register-btn {
+                max-width: 300px;
+                margin: 40px 0;
+                transition: all 0.5s;
+                border: 1px solid #0a6cdc;
+            }
+            .register-btn:hover {
+                color: black;
+                background-color: #FFF;
+                border-color: black;
+            }
+        }
+    }
+}

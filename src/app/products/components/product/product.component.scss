@@ -1,0 +1,96 @@
+.card {
+    transition: transform 0.3s;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: none;
+    position: relative;
+    .state {
+        position: absolute;
+        width: 100px;
+        color: #e95144;
+        left: -15px;
+        top: -45px;
+        padding: 2px 5px;
+        background: antiquewhite;
+        fa-icon {
+            color: #e95144;
+            margin-right: 5px;
+        }
+    }
+    .container-img {
+        height: 270px;
+        .card-img,
+        .card-img-top {
+            height: 245px;
+            width: 90%;
+            cursor: crosshair;
+            transition: all 1s ease-in-out;
+        }
+    }
+
+    .card-body {
+        cursor: pointer;
+        h5 {
+            color: #b3b3b3;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        p {
+            overflow: hidden;
+            font-size: 13px;
+        }
+
+        .title {
+            height: 39px;
+           // overflow: visible !important;
+        }
+
+        .description {
+            height: 100px;
+        }
+
+        .price {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .love-icon-regular,
+        .love-icon-solid {
+            text-align: right;
+            font-size: 30px;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            cursor: pointer;
+
+            fa-icon {
+                position: absolute;
+                left: 50%;
+                top: 55%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .love-icon-solid {
+            fa-icon {
+                color: red !important
+            }
+        }
+    }
+
+}
+
+img:hover {
+    transform: scale(1.1);
+    /* (105% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.add-to-cart {
+    background-color: #fd6506;
+    color: #FFF;
+}

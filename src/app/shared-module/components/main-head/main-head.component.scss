@@ -1,0 +1,20 @@
+.main-header {
+    margin-bottom: 30px;
+    margin-top: 80px;
+    align-items: center;
+    .title {
+        font-weight: bold;
+        letter-spacing: 10px;
+    }
+    .line span {
+        height: 5px;
+        width: 100%;
+        background-color: black;
+        display: inline-block;
+    }
+    @media(max-width: 768px) {
+        .title {
+            font-size: 19px;
+        }
+    }
+}

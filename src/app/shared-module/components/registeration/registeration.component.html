@@ -1,0 +1,47 @@
+<div class="container">
+    <h1 class="mt-5">Create Account</h1>
+    <p>Please register below to create an account</p>
+    <form [formGroup]="form" novalidate (ngSubmit)="submitData()">
+        <div formGroupName = "name">
+            <input type="text" class="form-control" formControlName="fName" name="fName" placeholder="First Name"  [class.is-invalid]="form.get('name.fName')?.invalid && form.get('name.fName')?.touched">
+            <small class="text-danger" [class.d-none]="form.get('name.fName')?.valid || form.get('name.fName')?.untouched">First Name field is required!!!</small>
+
+            <input type="text" class="form-control" formControlName="lName" name="lName" placeholder="Last Name"  [class.is-invalid]="form.get('name.lName')?.invalid && form.get('name.lName')?.touched">
+            <small class="text-danger" [class.d-none]="form.get('name.lName')?.valid || form.get('name.lName')?.untouched">Last Name field is required!!!</small>
+
+        </div>
+        <input type="text" class="form-control" formControlName="userName" name="userName" placeholder="User Name"  [class.is-invalid]="form.get('userName')?.invalid && form.get('userName')?.touched">
+        <small class="text-danger" [class.d-none]="form.get('userName')?.valid || form.get('userName')?.untouched">User Name field is required!!!</small>
+        
+        <input type="email" class="form-control" formControlName="email" name="email" placeholder="Email"  [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched">
+        <small class="text-danger d-block" [class.d-none]="form.get('email')!.value !==null || form.get('email')?.untouched">Email field is required!!!</small>
+        <small class="text-danger" *ngIf="form.get('email')?.errors?.['pattern']">this email not allowed !!!</small>
+        
+        <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password"  [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched">
+        <small class="text-danger" [class.d-none]="form.get('password')?.valid || form.get('password')?.untouched">Password field is required!!!</small>
+        
+        <input type="password" class="form-control" formControlName="confirmPassword" name="confirmPassword" placeholder="Confirm Password"  [class.is-invalid]="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched && form.errors?.['misMatch']">
+        <small class="text-danger" [class.d-none]="form.get('confirmPassword')?.valid || form.get('confirmPassword')?.untouched">Confirm Password field is required!!!</small>
+        <small class="text-danger" *ngIf="form.errors?.['misMatch']">Passwords not matched !!!</small>    
+        
+        <div formGroupName = "address">
+            <input type="text" class="form-control" formControlName="city" name="city" placeholder="city"  [class.is-invalid]="form.get('address.city')?.invalid && form.get('address.city')?.touched">
+            <small class="text-danger" [class.d-none]="form.get('address.city')?.valid || form.get('address.city')?.untouched">City field is required!!!</small>
+
+            <input type="text" class="form-control" formControlName="street" name="street" placeholder="street"  [class.is-invalid]="form.get('address.street')?.invalid && form.get('address.street')?.touched">
+            <small class="text-danger" [class.d-none]="form.get('address.street')?.valid || form.get('address.street')?.untouched">Street field is required!!!</small>
+
+            <input type="text" class="form-control" formControlName="number" name="number" placeholder="number"  [class.is-invalid]="form.get('address.number')?.invalid && form.get('address.number')?.touched">
+            <small class="text-danger" [class.d-none]="form.get('address.number')?.valid || form.get('address.number')?.untouched">Number field is required!!!</small>
+
+            <input type="text" class="form-control" formControlName="zipCode" name="zipCode" placeholder="zipCode"  [class.is-invalid]="form.get('address.zipCode')?.invalid && form.get('address.zipCode')?.touched">
+            <small class="text-danger" [class.d-none]="form.get('address.zipCode')?.valid || form.get('address.zipCode')?.untouched">zip Code field is required!!!</small>
+
+        </div>
+        <input type="text" class="form-control" formControlName="phone" name="phone" placeholder="phone"  [class.is-invalid]="form.get('phone')?.invalid && form.get('phone')?.touched">
+        <small class="text-danger" [class.d-none]="form.get('phone')?.valid || form.get('phone')?.untouched">Phone field is required!!!</small>
+        <div class="text-center register-btn-container">
+            <button type="submit"  class="btn btn-primary form-control register-btn" [disabled]="!form.valid" (click)="register()" >Create An Account</button>
+        </div>
+    </form>
+</div>

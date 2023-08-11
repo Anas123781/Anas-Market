@@ -1,0 +1,118 @@
+<!--Start Landing Section-->
+<section class="landing">
+    <div class="container">
+        <div class="abstraction">
+            <p>The best Ecommerce wibsite here you wil find any thing you want</p>
+            <a href="#categories">
+                <button class="btn btn-dark">Shop Now</button>
+            </a>
+        </div>
+    </div>
+</section>
+<!--End Landing Section-->
+<section class="container text-center mt-5">
+    <!--Start categories Section-->
+    <div class="categories" id="categories">
+        <app-main-head [header]="'Choose Category'"></app-main-head>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="category">
+                    <img src="../../../../assets/category/men.jpg" alt="">
+                    <a routerLink="/men">Men's Clothes</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="category">
+                    <img src="../../../../assets/category/wemen.jpg" alt="">
+                    <a routerLink="/women">Women's Clothes</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="category">
+                    <img src="../../../../assets/category/electronic.jpg" alt="">
+                    <a routerLink="/electronics">Electronics</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="category">
+                    <img src="../../../../assets/category/jellowery.jpg" alt="">
+                    <a routerLink="/jewelery">jellowery</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End categories Section-->
+    
+    <!--Start new arrivals Section-->
+    <app-main-head [class.text-center]="true" [header]="'New Arrivals'"></app-main-head>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let product of arrivalsProducts">
+            <app-product [data]="product" (cart)="addToCart($event)"></app-product>
+        </div>
+    </div>
+    <!--End new arrivals Section-->
+
+    <!--Start new arrivals Section-->
+    <app-main-head [class.text-center]="true" [header]="'New Arrivals'"></app-main-head>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let product of newProducts">
+            <app-product [data]="product" (cart)="addToCart($event)"></app-product>
+        </div>
+    </div>
+    <!--End new arrivals Section-->
+</section>
+<!-- Start Brands Section -->
+<section class="brands">
+    <div class="container">
+        <div class="row main-header text-center">
+            <div class="col line">
+                <span></span>
+            </div>
+            <div class="col">
+                <h1 class="title">Brands</h1>
+            </div>
+            <div class="col line">
+                <span></span>
+            </div>
+        </div>        <div class="row brands-conteainer align-items-center justify-content-center text-center">
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-1.png" alt="">
+          </div>
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-2.png" alt="">
+          </div>
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-3.png" alt="">
+          </div>
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-4.png" alt="">
+          </div>
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-5.png" alt="">
+          </div>
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-6.png" alt="">
+          </div>
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-7.png" alt="">
+          </div>
+          <div class="col-md-3 col-sm-6 brand">
+            <img src="../../../../assets/clients/client-8.png" alt="">
+          </div>
+        </div>
+    </div>
+</section>
+<section class="gallery">
+    <app-gallery></app-gallery>
+</section>
+<div *ngIf="loading">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+  <!-- End Brands Section -->
+  <!-- 2 asmant 1 gebs msmar sen sag 1lamb  -->
+  <!--     <app-select [data]="categories" [title]="'Categories'" (selectedValue)="filterProductsByCategories($event)"></app-select>
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-3 col-sm-12" *ngFor="let product of products" >
+            <app-product [data]="product" (cart)="addToCart($event)"></app-product>
+        </div>
+        </div> -->

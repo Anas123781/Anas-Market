@@ -1,0 +1,38 @@
+<div class="content">
+    <div class="row mx-0">
+        <div class="col-lg-6 information" >
+        </div>
+        <div class="col-lg-6 cart">
+            <div class="products-container">
+                <div *ngFor="let product of carts" class="product">
+                    <div class="row align-items-center justify-content-between mx-0">
+                        <div class="col-1 image-container d-flex justify-content-center align-items-center">
+                            <img src="{{product.item.image}}" alt="{{product.item.title}}">
+                        </div>
+                        <div class="col-7 product-info">
+                            <p class="title my-0">{{product.item.title}}</p>
+                            <p class="color-size">Black/XL</p>
+                        </div>
+                        <div class="col-2 price">{{product.item.price * product.quantity | number|currency}}</div>
+                    </div>                    
+                </div>
+                <div class="discount-container d-flex">
+                    <input type="text" class="form-control" name="discount" placeholder="Discount Code">
+                    <button type="button" class="btn btn-primary form-control">Apply</button>
+                </div>
+                <div class="subtotal-price d-flex justify-content-between">
+                    <p>Subtotal</p>
+                    <p>{{sum | number|currency}}</p>
+                </div>
+                <div class="shipping d-flex justify-content-between">
+                    <p>Shipping</p>
+                    <p>{{discount|currency}}</p>
+                </div>
+                <div class="total-price d-flex justify-content-between">
+                    <p>Total</p>
+                    <p>{{(sum + discount) | number | currency}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

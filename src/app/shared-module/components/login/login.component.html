@@ -1,0 +1,31 @@
+<div class="body d-flex justify-content-center align-items-center p-5">
+    <div class="container d-flex justify-content-center align-items-center p-5">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="image-container">
+                    <img src="../../../../assets/images/login/cyber-monday-shopping-sales.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <h2>Member Login</h2>
+                <form [formGroup]="form">
+                    <div class="email-container text-left mb-2">
+                        <input type="email" class="form-control" formControlName="email" name="email" placeholder="Email"  [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched">
+                        <small class="text-danger" [class.d-none]="form.get('email')?.valid || form.get('email')?.untouched">Email field is required!!!</small>
+                    </div>
+                    <div class="password-container text-left mb-2">
+                        <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password" [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched" >
+                        <small class="text-danger" [class.d-none]="form.get('password')?.valid || form.get('password')?.untouched">Password field is required!!!</small>
+                    </div>
+                    <small class="text-danger d-block" [class.d-none]="loginCheck">your password or email is incorrect !!!</small>
+                    <button type="button"  class="btn btn-success form-control" (click)="login()" >LOGIN</button>
+                    <a routerLink="/users" class="d-block">Creat Your Account
+                        <span class="icon">
+                        <fa-icon [icon]="['fas','arrow-right']"></fa-icon>
+                        </span>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
