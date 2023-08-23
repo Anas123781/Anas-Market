@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       console.log(i)
       if (item.email === this.form.get('email')!.value && item.password === this.form.get('password')!.value) {
         localStorage.setItem('user', JSON.stringify({item : item , index:i}));
-        this.route.navigate(['/products'])
+        this.route.navigate(['/home'])
       } else {
         this.loginCheck = false;
       }

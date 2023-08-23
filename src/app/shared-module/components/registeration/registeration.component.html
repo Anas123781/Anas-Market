@@ -8,7 +8,6 @@
 
             <input type="text" class="form-control" formControlName="lName" name="lName" placeholder="Last Name"  [class.is-invalid]="form.get('name.lName')?.invalid && form.get('name.lName')?.touched">
             <small class="text-danger" [class.d-none]="form.get('name.lName')?.valid || form.get('name.lName')?.untouched">Last Name field is required!!!</small>
-
         </div>
         <input type="text" class="form-control" formControlName="userName" name="userName" placeholder="User Name"  [class.is-invalid]="form.get('userName')?.invalid && form.get('userName')?.touched">
         <small class="text-danger" [class.d-none]="form.get('userName')?.valid || form.get('userName')?.untouched">User Name field is required!!!</small>

@@ -22,12 +22,13 @@ export class HeaderComponent implements OnInit {
   headerIcon:boolean = true ;
   text:any;
   cartsNumber!:number;
+  showHeaderInPayment!:boolean;
   constructor(private iconLibrary:FaIconLibrary, private productsService :ProductsService,private productService:ProductService) {
     this.iconLibrary.addIcons(fasShopping , fasHome , farUser,farBars,farClose);
-
   }
   ngOnInit(): void {
     this.productService.sharedCartsNumber.subscribe(data => this.cartsNumber = data)
+    this.productService.sharedShowHeader.subscribe((data:any) => this.showHeaderInPayment = data)
   }
   reverce() {
     this.headerIcon = !this.headerIcon

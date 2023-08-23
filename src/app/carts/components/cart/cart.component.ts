@@ -69,7 +69,7 @@ export class CartComponent implements OnInit {
 // remove all carts from ui and local strorage (vertual data base)
 deleteAllCarts() {
   this.carts = [];
-  this.productService.updataCartsNumber(0);
+  this.productService.updataCartsNumber(1);
   localStorage.setItem("cart" , JSON.stringify(this.carts));
   this.getTotalPrice();
   this.cartsLingth = 0;

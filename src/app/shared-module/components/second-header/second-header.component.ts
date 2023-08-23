@@ -15,11 +15,14 @@ import { ProductService } from '../../services/product.service';
 })
 export class SecondHeaderComponent implements OnInit {
   cartsNumber!:number;
+  showHeaderInPayment!:boolean;
   constructor(private iconLibrary:FaIconLibrary, private productService:ProductService) {
     this.iconLibrary.addIcons(fasShopping , fasHome , farUser,farBars);
   }
   ngOnInit(): void {
-    this.productService.sharedCartsNumber.subscribe(data => this.cartsNumber = data)
+    this.productService.sharedCartsNumber.subscribe(data => this.cartsNumber = data);
+    this.productService.sharedShowHeader.subscribe((data:any) => this.showHeaderInPayment = data)
+
   }
 
 }

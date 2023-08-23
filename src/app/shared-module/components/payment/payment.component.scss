@@ -1,15 +1,70 @@
+$transition-collapse:         height .5s ease;
+$transition-collapse-width:   width .5s ease;
 .content {
-    padding-top: 77.5px;
     min-height: 100vh;
     .row {
         max-width: 100%;
         min-height: 68px;
         .information {
+            form {
+                .head {
+                    text-transform: capitalize;
+                }
+                .email-container {
+                    position: relative;
+                }
+                .input-header {
+                    position: absolute;
+                    left: 13px;
+                    top: 0px;
+                    color: #adadad;
+                    font-size: 12px;
+                }
+                .form-control {
+                    margin: 15px 0;
+                }
+                small {
+                    display: block;
+                    margin-top: -10px;                    
+                }
+                input, select { 
+                    height: 48px;
+                    margin: 15px 0;
+                }
+                input::placeholder { 
+                    font-size: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
+                }
+                .offer-container {
+                    margin-top: 10px;
+                    input[type='checkbox'] { 
+                        width: 20px;
+                        height: 20px;
+                    }
+                    .form-check-label {
+                        cursor: pointer;
+                        margin-left: 10px;
+                    }
+                }
+                .name {
+                        gap: 10px !important;
+                        .input-header {
+                            position: absolute;
+                            left: 8px;
+                            top: 17px;
+                            color: #adadad;
+                            font-size: 12px;
+                        }
+                }
+            }
         }
         .cart {
             background-color: #e6e6e6;
             padding: 35px 40px;
+            height: 100vh;
             border-left: 1px solid #bfbfbf;
             .products-container {
                 .product {
@@ -53,6 +108,47 @@
                     font-weight: bold;
                 }
             }
+        }
+        @media(max-width: 992px) {
+            .current {
+                display: none;
+            }
+        }
+        .alternative {
+            padding: 25px 40px;
+            margin-bottom: 20px;
+            .show-summary-btn {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border: none;
+                background-color: transparent;
+                color: #fd6506;
+                span {
+                    .text {
+                        margin: 0 15px
+                    }
+                }
+                .total-cost {
+                    color: #000;
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+            }
+            .products-container {
+                margin-top: 15px;
+            }
+        }
+        @media(min-width: 991px) {
+            .alternative {
+                display: none;
+            }
+        }
+    }
+    @media(max-width:992px) {
+        .main-row {
+            flex-direction: column-reverse;
         }
     }
 }

@@ -1,26 +1,57 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/carts/interfaces/order';
 import { CartsService } from 'src/app/carts/services/carts.service';
-
+import { ConfirmPasswordValidator } from '../../classes/password.validators';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faCartShopping as faCart } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp as faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown as faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  constructor (private service:CartsService, private router:Router) {}
+  constructor (private service:CartsService, private router:Router, private fb: FormBuilder, private iconLibrary:FaIconLibrary, private productService:ProductService) {
+    this.iconLibrary.addIcons(faCart, faAngleUp, faAngleDown);
+
+  }
   carts:any[] = []
   cartsLingth:number=0
   sum:number = 0;
   amount:number = 0;
   success:boolean = false;
   checkedBoxes :any[] = [];
-  hideCarts:boolean = false
+  hideCarts:boolean = false;
   discount:number = 20;
+  form!: FormGroup;
+  offers: boolean = false;
+  showSummary:boolean = true
   ngOnInit(): void {
+    this.productService.showHeader(false);
+    this.getTotalPrice();
     this.getProductsCart ();
     this.getTotalPrice();
+        //create form group and controls
+        this.form = this.fb.group({
+          email: ['', [Validators.required ,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+          userName: ['', [Validators.required]],
+          password: ['', [Validators.required]],
+          confirmPassword: ['', [Validators.required]],
+          name: this.fb.group({
+            fName: ['', [Validators.required]],
+            lName: ['', [Validators.required]]
+          }),
+          address: this.fb.group({
+            city: ['', [Validators.required]],
+            street: ['', [Validators.required]],
+            number: ['', [Validators.required]],
+            zipCode: ['', [Validators.required]],
+          })
+        })
   }
   // get collection of carts from local storage because we have not alot of options in fake API
   getProductsCart () {
@@ -36,7 +67,6 @@ export class PaymentComponent implements OnInit {
       temp+=(cart.item.price * cart.quantity);
     })
     this.sum = temp;
-    return this.sum;
   }
 // put data in order interface shap to be ready to pass it to back-end by api service
 goToPay(){
@@ -79,5 +109,16 @@ removeFromArr(arr:any[], value:any) {
   }
   return arr;
 }
+reverseSummary() {
+  this.showSummary = !this.showSummary;
+}
+emailMe() {
+  this.offers = !this.offers
+}
+submit() {
 
+}
+goToShipping() {
+  
+}
 }

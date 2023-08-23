@@ -73,30 +73,34 @@ export class AllProductsComponent implements OnInit {
   // add carts to back-end to put their in carts page
   addToCart(event:any) {
     this.loading = true;
-    console.log(event)
+    console.log(event);
     if("cart" in localStorage){
-      JSON.parse(localStorage.getItem("cart")!).forEach((cart:any) => {
-        this.vertualCarts.push(cart);
-      })
-      // to check if this product add to cart already
-      let excist = this.vertualCarts.find(item => item.item.id === event.item.id);
-      if(excist) {
+      let exc = JSON.parse(localStorage.getItem("cart")!).find((item:any) => item.item.id === event.item.id);
+      if(!exc) {
+        JSON.parse(localStorage.getItem("cart")!).forEach((cart:any) => {
+          this.vertualCarts.push(cart);
+        })
+        // to check if this product add to cart already
+        let excist = this.vertualCarts.find(item => item.item.id === event.item.id);
+        if(excist) {
+          this.loading = false;
+          alert("Product Is Already in your cart");
+        }else {
+          this.loading = false;
+          this.vertualCarts.push(event);
+          localStorage.setItem("cart" , JSON.stringify(this.vertualCarts));
+          this.vertualCarts = [];
+        }
+      } else {
         this.loading = false;
         alert("Product Is Already in your cart");
-      }else {
-        this.loading = false;
-        this.vertualCarts.push(event);
-        localStorage.setItem("cart" , JSON.stringify(this.vertualCarts));
-        this.vertualCarts = [];
       }
     }else {
       this.vertualCarts.push(event);
       localStorage.setItem("cart" , JSON.stringify(this.vertualCarts));
       this.vertualCarts = [];
       this.loading = false;
-
-
-    } 
+    }
   }
   // if I have actual bac-end i will get arrivals Products and new products so i got random collection of id to show products  
   getProductsByID() {
